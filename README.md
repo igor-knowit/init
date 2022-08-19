@@ -7,6 +7,7 @@ Skripte za installaciju na novom stroju:
   - ...
 
   - all
+  - neovim
 
 
 
