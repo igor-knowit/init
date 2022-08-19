@@ -4,18 +4,19 @@ Neovim
 Install
 -------
 
-  $ sudo bash ./install-neovim.sh
+    $ sudo bash ./install-neovim.sh
 
 Setup
 -----
 
-  $ sudo bash ./update-alternatives-neovim.sh
+    update-alternatives + copy init.vim to config dir
+
+    $ sudo bash ./setup.sh
 
 Plugin
 ------
 
-  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    $ sudo bash ./package-manager.sh
 
 
-  ~/.config/nvim/init.vim
 

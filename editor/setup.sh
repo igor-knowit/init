@@ -10,4 +10,10 @@ sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/nvim nvim "${CUSTOM_NVIM_PATH}" 110
 
+if [ ! -d "~/.config/nvim" ]
+then
+  sudo mkdir -p ~/.config/nvim
+fi
+
+sudo cp init.vim ~/.config/nvim/init.vim
 
