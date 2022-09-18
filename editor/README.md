@@ -23,4 +23,10 @@ Nakon setupa pokreni nvim
 
     :PlugInstall
 
+Errors
+------
 
+### AppImages require FUSE to run.
+
+
+    $ sudo apt install libfuser2
