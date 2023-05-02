@@ -1,0 +1,63 @@
+version: '3.3'
+services:
+
+  # pixelman:
+  #   container_name: pixelman
+  #   build:
+  #     context: ../services/pixelman
+  #   ports:
+  #     - 4200:4200
+  #   volumes:
+  #     - ../services/pixelman:/pixelman
+  #     - /home/pixelman/workspace/Learn/angular/_maxililian-7:/tutor
+  #   # tty: true
+  #   networks:
+  #     - pixelman-net
+
+  # nodeman:
+  #   container_name: nodeman
+  #   build:
+  #     context: ../services/nodeman
+  #   ports:
+  #     - 8000:3000
+  #     - 8001:3001
+  #   volumes:
+  #     - ../services/nodeman/source:/nodeman
+  #     - ../services/nodeman/neovim-config:/root/.config
+  #     # - /home/pixelman/workspace/Learn/angular/_maxililian-7:/tutor
+  #   tty: true
+  #   networks:
+  #     - pixelman-net
+
+  backman:
+    container_name: backman
+    build:
+      context: ../services/backman
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ../services/backman/source:/backman
+      - ../services/backman/neovim-config:/root/.config
+      - /home/pixelman/workspace/Learn/angular/_maxililian-7:/tutor
+    tty: true
+    networks:
+      - pixelman-net
+
+  dbman:
+    container_name: dbman
+    image: postgres:15.2-bullseye
+    # command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - 5432:5432
+    volumes:
+      - ../services/dbman/data:/var/lib/postgresql/data
+      - ../services/dbman/sql:/scripts/sql
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - pixelman-net
+
+networks:
+  pixelman-net:
+    driver: "bridge"
